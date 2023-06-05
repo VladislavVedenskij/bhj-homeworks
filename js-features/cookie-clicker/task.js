@@ -1,15 +1,15 @@
 const cookie = document.getElementById("cookie");
-const clickerCounter = document.getElementById("clicker__counter");
-const clickerSpeed = document.getElementById("clicker__speed");
-let value = 0;
 
-cookie.onclick = function() {
-    value++;
-    clickerCounter.textContent = value;
-    if (value % 2 == 0) {
-        cookie.width = 250;
-    } else {
-        cookie.width = 180;
-    }
+const clicker__counter = document.getElementById("clicker__counter");
+let count = 0;
 
-}
+cookie.onclick = function () {
+  if (count % 2 === 0) {
+    cookie.width = 100;
+  } else {
+    cookie.width = 200;
+  }
+  
+  count++;
+  clicker__counter.textContent = count;
+ };
