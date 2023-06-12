@@ -1,13 +1,15 @@
-const menuSubs = document.querySelectorAll('.menu_sub');
-const menuItem = document.querySelectorAll('.menu__item');
-const menuLinks = document.querySelectorAll('.menu__link');
+'use strict'
 
-menuItem.forEach(el => {
-    el.addEventListener('click', (e) => {
-        if (e.target.nextSibling.nextSibling.classList.value === 'menu menu_sub') {
-            e.preventDefault()
-            menuSubs.forEach(el => el.classList.remove('menu_active'));
-            e.target.nextSibling.nextSibling.classList.add('menu_active')
-        } 
-    })
-})
+
+
+window.onload = function() {
+	let arr = Array.from(document.querySelectorAll('.menu__item'));
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i].querySelector('.menu_sub')) {
+			arr[i].querySelector('.menu__link').onclick = function(event) {
+				arr[i].querySelector('.menu_sub').classList.toggle('menu_active');
+				return false;
+			};
+		}
+	}
+};
